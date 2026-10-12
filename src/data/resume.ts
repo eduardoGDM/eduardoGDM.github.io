@@ -40,6 +40,8 @@ export type Resume = {
     headline: string
     summary: string[]
     pullQuote: string
+    /** Hobbies e vida fora do trabalho. `since` vazio mostra o rótulo de rotina. */
+    offline: { intro: string; items: { since: string; name: string; text: string }[] }
   }
   capabilities: Capability[]
   stack: { group: string; items: string[] }[]
@@ -93,6 +95,15 @@ const pt: Resume = {
     ],
     pullQuote:
       "Foco em escalabilidade, qualidade de código e evolução contínua de produtos digitais com regras de negócio complexas.",
+    offline: {
+      intro:
+        "Fora do trabalho, meus principais hobbies são os games competitivos e a academia. Não à toa, dois dos meus projetos pessoais nasceram daí: o gestor de treinos e o CS2 Resolução.",
+      items: [
+        { since: "2013", name: "Dota 2", text: "Jogo desde a época do beta." },
+        { since: "2014", name: "Counter-Strike", text: "Do CS:GO ao CS2." },
+        { since: "", name: "Academia", text: "Treino como parte fixa da rotina." },
+      ],
+    },
   },
   capabilities: [
     {
@@ -415,6 +426,15 @@ const en: Resume = {
     ],
     pullQuote:
       "Focused on scalability, code quality and the continuous evolution of digital products with complex business rules.",
+    offline: {
+      intro:
+        "Outside of work, my main hobbies are competitive games and the gym. No coincidence that two of my personal projects came from there: the workout manager and CS2 Resolution.",
+      items: [
+        { since: "2013", name: "Dota 2", text: "Playing since the beta days." },
+        { since: "2014", name: "Counter-Strike", text: "From CS:GO to CS2." },
+        { since: "", name: "Gym", text: "Training is a fixed part of my routine." },
+      ],
+    },
   },
   capabilities: [
     {

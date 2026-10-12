@@ -34,6 +34,28 @@ export function About() {
               <p key={i}>{p}</p>
             ))}
           </div>
+
+          <div className="mt-16">
+            <p className="label text-cold">{t.offline}</p>
+            <p className="mt-4 max-w-2xl text-muted">{profile.offline.intro}</p>
+            <ul className="mt-8 grid gap-x-10 sm:grid-cols-3">
+              {profile.offline.items.map((h) => (
+                <li key={h.name} className="border-t border-line py-5">
+                  <p className="label text-muted">
+                    {h.since ? (
+                      <>
+                        {t.since} <span className="text-cold tabular-nums">{h.since}</span>
+                      </>
+                    ) : (
+                      t.routine
+                    )}
+                  </p>
+                  <p className="mt-2 font-heading text-[1.75rem] leading-tight">{h.name}</p>
+                  <p className="mt-1 text-[0.95rem] text-muted">{h.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Wrap>
     </section>
