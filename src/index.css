@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource-variable/cormorant-garamond/wght-italic.css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Luz fria
+  - night  preto           fundo
+  - deep   azul-noite      painéis e fundo da foto
+  - text   branco frio     texto
+  - muted  cinza azulado   texto secundário
+  - cold   azul frio       destaque
+  - ember  vermelho        só detalhes pontuais
+*/
+@theme inline {
+  --font-heading: "Cormorant Garamond Variable", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+
+  --color-night: var(--night);
+  --color-surface: var(--surface);
+  --color-deep: var(--deep);
+  --color-deep-2: var(--deep-2);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-cold: var(--cold);
+  --color-ember: var(--ember);
+  --color-line: var(--line);
+  --color-on-deep: var(--on-deep);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+/* Tema claro */
+:root {
+  --night: #eef0f4;
+  --surface: #f6f7fa;
+  --deep: #d9e1f0;
+  --deep-2: #c9d5ec;
+  --text: #0b0e14;
+  --muted: #535d70;
+  --cold: #1f4aa8;
+  --ember: #a82a28;
+  --line: rgb(11 14 20 / 0.12);
+  --on-deep: #0b0e14;
+  --fade: rgb(238 240 244);
+
+  color-scheme: light;
+  --background: var(--night);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--text);
+  --popover-foreground: var(--night);
+  --primary: var(--cold);
+  --primary-foreground: #ffffff;
+  --secondary: var(--deep);
+  --secondary-foreground: var(--text);
+  --muted-foreground: var(--muted);
+  --accent: var(--deep);
+  --accent-foreground: var(--cold);
+  --destructive: var(--ember);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--cold);
+  --radius: 0px;
+}
+
+/* Tema escuro (padrão) */
+.dark {
+  --night: #060709;
+  --surface: #0b0e14;
+  --deep: #0d1c38;
+  --deep-2: #132748;
+  --text: #e6eaf2;
+  --muted: #8e98ac;
+  --cold: #6f98e0;
+  --ember: #c23a36;
+  --line: rgb(140 160 200 / 0.14);
+  --on-deep: #e6eaf2;
+  --fade: rgb(6 7 9);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    /* clip (e não hidden) para não quebrar o header sticky */
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+  ::selection {
+    background: var(--cold);
+    color: var(--night);
+  }
+  h1, h2, h3 {
+    @apply font-heading;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .label {
+    @apply font-sans text-[0.72rem] font-medium tracking-[0.22em] uppercase;
+  }
+
+  .link-line {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease, color 0.3s ease;
+  }
+  .link-line:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Transição suave só durante a troca de tema */
+.theme-swap,
+.theme-swap * {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

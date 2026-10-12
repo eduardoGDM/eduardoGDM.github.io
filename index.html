@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#060709" />
+    <script>
+      // Aplica o tema antes de renderizar, para não piscar na cor errada.
+      // Padrão: escuro. O claro só entra se o visitante escolher.
+      (function () {
+        var light = false
+        try {
+          light = localStorage.getItem("portfolio-theme") === "light"
+        } catch (e) {}
+        if (light) {
+          document.querySelector('meta[name="theme-color"]').setAttribute("content", "#eef0f4")
+        } else {
+          document.documentElement.classList.add("dark")
+        }
+      })()
+    </script>
+    <title>Eduardo Gonçalves — Desenvolvedor Full Stack</title>
+    <meta
+      name="description"
+      content="Portfólio de Eduardo Gonçalves, desenvolvedor Full Stack Pleno: Laravel, React, React Native, Next.js, Node.js, SQL e AWS."
+    />
+    <meta property="og:title" content="Eduardo Gonçalves — Desenvolvedor Full Stack" />
+    <meta
+      property="og:description"
+      content="Produtos web e mobile de ponta a ponta, do requisito ao deploy."
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
