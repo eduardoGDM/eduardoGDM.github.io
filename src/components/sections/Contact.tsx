@@ -2,6 +2,7 @@ import { useState } from "react"
 import { identity } from "@/data/resume"
 import { useI18n } from "@/i18n"
 import { SectionLabel, Wrap } from "@/components/layout"
+import { Stroke } from "@/components/Stroke"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export function Contact() {
@@ -64,7 +65,7 @@ export function Contact() {
                   className="group flex items-center justify-between py-4 font-heading text-2xl transition-colors hover:text-cold"
                 >
                   {s.label}
-                  <span className="h-px w-6 bg-ember transition-all duration-300 group-hover:w-10" aria-hidden />
+                  <Stroke />
                 </a>
               </li>
             ))}

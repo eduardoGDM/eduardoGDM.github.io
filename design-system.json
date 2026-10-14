@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Luz fria",
+  "version": "2.0.0",
+  "description": "Design system do portfólio de Eduardo Gonçalves. Preto com azul frio, vermelho só em detalhes, tipografia editorial e imperfeições humanas contidas. Sem simbologia, sem ícones decorativos.",
+
+  "principles": [
+    "A identidade vem de tipografia, espaço e luz, nunca de ícones ou ornamentos.",
+    "Assimetria equilibrada: cada seção quebra o grid de um jeito diferente, mas o peso visual da página continua estável.",
+    "Imperfeição é tempero: no máximo um gesto 'humano' por área da tela (um traço feito à mão, uma moldura desalinhada).",
+    "Vermelho é pontuação, não cor de fundo: aparece em traços, nunca em áreas."
+  ],
+
+  "antiPatterns": {
+    "forbidden": [
+      "Gradientes roxos ou azuis neon como fundo de página",
+      "Glow, blur decorativo ou glassmorphism",
+      "Ícones flutuantes, emojis ou pictogramas sem função",
+      "Fileiras de cards idênticos com ícone + título + texto",
+      "Inter, Roboto, Open Sans, Poppins ou Montserrat como fonte principal",
+      "Grids perfeitamente espelhados em todas as seções",
+      "Bordas arredondadas genéricas (rounded-xl em tudo)",
+      "Símbolos ocultos, runas, brasões ou doodles cartunescos"
+    ]
+  },
+
+  "color": {
+    "dark": {
+      "night":   { "value": "#060709", "role": "fundo da página" },
+      "surface": { "value": "#0B0E14", "role": "faixas alternadas de seção" },
+      "deep":    { "value": "#0D1C38", "role": "painel da foto e bloco de contato" },
+      "deep-2":  { "value": "#132748", "role": "fundo atrás da foto" },
+      "text":    { "value": "#E6EAF2", "role": "texto principal" },
+      "muted":   { "value": "#8E98AC", "role": "texto secundário" },
+      "cold":    { "value": "#6F98E0", "role": "destaque: sobrenome, cargos, rótulos" },
+      "ember":   { "value": "#C23A36", "role": "só traços: sublinhados à mão, status 'Atual'" },
+      "line":    { "value": "rgba(140,160,200,0.14)", "role": "filetes e divisórias" }
+    },
+    "light": {
+      "night": "#EEF0F4", "surface": "#F6F7FA", "deep": "#D9E1F0", "deep-2": "#C9D5EC",
+      "text": "#0B0E14", "muted": "#535D70", "cold": "#1F4AA8", "ember": "#A82A28",
+      "line": "rgba(11,14,20,0.12)"
+    },
+    "rules": [
+      "Proporção aproximada na tela: 80% night/surface, 15% deep, 4% cold, 1% ember.",
+      "Texto sobre deep usa text; nunca cold sobre deep em corpo de texto."
+    ]
+  },
+
+  "typography": {
+    "display": {
+      "family": "Cormorant Garamond",
+      "package": "@fontsource-variable/cormorant-garamond",
+      "why": "Serifa de alto contraste com personalidade; em tamanhos grandes e peso 600 vira fonte de impacto sem parecer corporativa.",
+      "styles": {
+        "hero":      { "size": "clamp(3.6rem, 11vw, 7.5rem)", "weight": 600, "leading": 0.9,  "tracking": "-0.02em" },
+        "heroItalic":{ "size": "inherit", "weight": 400, "style": "italic", "note": "Primeiro nome em itálico leve, sobrenome em romano pesado: contraste de voz dentro do mesmo nome." },
+        "h2":        { "size": "clamp(2.6rem, 6vw, 4.6rem)", "weight": 600, "leading": 1.0,  "tracking": "-0.015em" },
+        "h3":        { "size": "clamp(1.6rem, 3vw, 2.4rem)", "weight": 600, "leading": 1.08, "tracking": "-0.01em" },
+        "quote":     { "size": "clamp(1.8rem, 3.4vw, 2.6rem)", "weight": 500, "style": "italic", "leading": 1.15, "hangingPunctuation": true }
+      }
+    },
+    "text": {
+      "family": "Schibsted Grotesk",
+      "package": "@fontsource-variable/schibsted-grotesk",
+      "why": "Grotesca nascida em redação de jornal: altamente legível, com desenho próprio (g, a, R) que foge da neutralidade da Inter.",
+      "styles": {
+        "body":  { "size": "1.0625rem", "weight": 400, "leading": 1.7, "tracking": "0", "measure": "62ch" },
+        "small": { "size": "0.95rem",   "weight": 400, "leading": 1.6 },
+        "label": { "size": "0.72rem",   "weight": 600, "tracking": "0.16em", "transform": "uppercase" },
+        "ui":    { "size": "0.95rem",   "weight": 500, "tracking": "0.01em" }
+      }
+    },
+    "numerals": "tabular-nums em datas e índices; old-style no corpo da serifa."
+  },
+
+  "spacing": {
+    "scale": ["4px", "8px", "12px", "20px", "32px", "52px", "84px", "136px"],
+    "note": "Escala de Fibonacci aproximada, não múltiplos de 8: os saltos irregulares dão respiro menos mecânico.",
+    "sectionRhythm": {
+      "rule": "Nenhuma seção repete o padding da anterior.",
+      "about":    "pt-28 pb-36",
+      "work":     "pt-24 pb-32",
+      "stack":    "pt-32 pb-24",
+      "path":     "pt-24 pb-28",
+      "projects": "pt-32 pb-36"
+    }
+  },
+
+  "layout": {
+    "container": "max-w-[1200px], gutters 16 / 32 / 48px",
+    "grid": "12 colunas",
+    "asymmetry": [
+      "Hero: texto em 7 colunas, foto em 5; a foto avança sobre o painel azul e a moldura escapa do eixo.",
+      "Cabeçalhos de seção alternam entre a coluna 1 e um recuo de 2 colunas (Atuação: 1, Stack: recuado, Trajetória: 1, Projetos: recuado).",
+      "Atuação: duas colunas em alturas diferentes (a da direita começa 84px abaixo).",
+      "Stack: colunas de larguras diferentes (1.2fr 1.4fr 1fr 1fr 1.3fr), seguindo o tamanho real de cada grupo."
+    ]
+  },
+
+  "imperfections": {
+    "handDrawnStroke": {
+      "use": "Sublinhado do CTA principal e dos links sociais.",
+      "spec": "SVG com path levemente ondulado e espessura variável, cor ember, 1.5px; cresce em largura no hover.",
+      "limit": "Só em links de ação. Nunca em títulos."
+    },
+    "misregisteredFrame": {
+      "use": "Foto do hero.",
+      "spec": "Contorno 1px cold a 45% de opacidade, deslocado 14px x 18px e girado 1.2deg atrás da foto, como impressão fora de registro."
+    },
+    "grain": {
+      "use": "Página inteira.",
+      "spec": "Ruído fractal SVG em overlay fixo, opacidade 0.035 no escuro e 0.05 no claro, sem interação."
+    },
+    "hangingPunctuation": "Aspas da citação penduradas fora da margem do texto."
+  },
+
+  "components": {
+    "link-action": "Texto ui + handDrawnStroke à direita.",
+    "link-text": "Sublinhado de 1px que cresce da esquerda no hover (link-line).",
+    "section-label": "label em muted, índice em cold, filete de 24px entre eles.",
+    "tabs": "Grade de abas com filete inferior; ativa ganha traço ember de 1px."
+  },
+
+  "motion": {
+    "reveal": "Subida de 14px com opacidade, 900ms, cubic-bezier(0.2,0.7,0.2,1).",
+    "hover": "Traços crescem em 300ms; nada pula, gira ou brilha.",
+    "reducedMotion": "Todas as animações desligadas com prefers-reduced-motion."
+  }
+}

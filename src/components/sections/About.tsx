@@ -11,7 +11,7 @@ export function About() {
   ]
 
   return (
-    <section id="sobre" className="scroll-mt-16 border-t border-line py-24 md:py-32">
+    <section id="sobre" className="scroll-mt-16 border-t border-line pt-24 pb-28 md:pt-28 md:pb-36">
       <Wrap className="grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <SectionLabel index="01">{t.sections.about}</SectionLabel>
@@ -26,7 +26,11 @@ export function About() {
         </div>
 
         <div className="lg:col-span-8">
-          <blockquote className="border-l-2 border-cold pl-6 font-heading text-[clamp(1.8rem,3.4vw,2.6rem)] leading-[1.15] italic">
+          {/* aspas penduradas fora da margem do texto */}
+          <blockquote className="relative font-heading text-[clamp(1.8rem,3.4vw,2.6rem)] leading-[1.15] font-medium italic">
+            <span className="absolute top-0 -left-[0.45em] text-cold" aria-hidden>
+              “
+            </span>
             {profile.pullQuote}
           </blockquote>
           <div className="mt-12 max-w-2xl space-y-5 text-muted">

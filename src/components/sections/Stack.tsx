@@ -5,11 +5,11 @@ export function Stack() {
   const { t, data } = useI18n()
 
   return (
-    <section id="stack" className="scroll-mt-16 border-t border-line py-24 md:py-32">
+    <section id="stack" className="scroll-mt-16 border-t border-line pt-28 pb-20 md:pt-32 md:pb-24">
       <Wrap>
-        <SectionHead index="03" label={t.sections.stack} title={t.stackTitle} />
+        <SectionHead index="03" label={t.sections.stack} title={t.stackTitle} offset />
 
-        <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_1.4fr_1fr_1fr_1.3fr]">
           {data.stack.map((g) => (
             <div key={g.group}>
               <p className="label border-b border-line pb-3 text-cold">{g.group}</p>
