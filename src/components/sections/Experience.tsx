@@ -55,7 +55,7 @@ export function Experience() {
   const { t, data } = useI18n()
 
   return (
-    <section id="trajetoria" className="scroll-mt-16 border-t border-line bg-surface pt-24 pb-24 md:pt-24 md:pb-28">
+    <section id="trajetoria" className="scroll-mt-16 border-t border-line bg-surface py-24 md:py-32">
       <Wrap>
         <SectionHead index="04" label={t.sections.path} title={t.pathTitle} />
 

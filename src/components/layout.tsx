@@ -35,28 +35,22 @@ export function SectionLabel({
   )
 }
 
-/**
- * Cabeçalho de seção: rótulo pequeno + título grande em serifa.
- * `offset` recua o bloco em 2 de 12 colunas no desktop; as seções alternam
- * para quebrar o alinhamento repetido (ver design-system.json > layout.asymmetry).
- */
+/** Cabeçalho de seção: rótulo pequeno + título grande em serifa. */
 export function SectionHead({
   index,
   label,
   title,
-  offset = false,
   className,
 }: {
   index: string
   label: string
   title: ReactNode
-  offset?: boolean
   className?: string
 }) {
   return (
-    <div className={cn(offset && "lg:pl-[16.666%]", className)}>
+    <div className={className}>
       <SectionLabel index={index}>{label}</SectionLabel>
-      <h2 className="mt-5 text-[clamp(2.6rem,6vw,4.6rem)] leading-[1]">{title}</h2>
+      <h2 className="mt-5 text-[clamp(2.6rem,6vw,4.4rem)] leading-[1] tracking-[-0.01em]">{title}</h2>
     </div>
   )
 }

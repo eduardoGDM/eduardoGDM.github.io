@@ -1,6 +1,5 @@
 import { useI18n } from "@/i18n"
 import { SectionHead, Wrap } from "@/components/layout"
-import { Stroke } from "@/components/Stroke"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function Projects() {
@@ -8,12 +7,10 @@ export function Projects() {
   const projects = data.projects
 
   return (
-    <section id="projetos" className="scroll-mt-16 border-t border-line pt-28 pb-32 md:pt-32 md:pb-36">
+    <section id="projetos" className="scroll-mt-16 border-t border-line py-24 md:py-32">
       <Wrap>
-        <SectionHead index="05" label={t.sections.projects} title={t.projectsTitle} offset />
-        <div className="lg:pl-[16.666%]">
-          <p className="mt-5 max-w-xl text-muted">{t.projectsIntro}</p>
-        </div>
+        <SectionHead index="05" label={t.sections.projects} title={t.projectsTitle} />
+        <p className="mt-5 max-w-xl text-muted">{t.projectsIntro}</p>
 
         <Tabs defaultValue={projects[0].id} className="mt-14 gap-0">
           <TabsList
@@ -65,7 +62,7 @@ export function Projects() {
                           className="group inline-flex items-center gap-3 text-[0.95rem] font-medium"
                         >
                           {l.label}
-                          <Stroke />
+                          <span className="h-px w-6 bg-ember transition-all duration-300 group-hover:w-10" aria-hidden />
                         </a>
                       ))}
                     </div>
